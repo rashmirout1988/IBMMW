@@ -12,6 +12,7 @@
 #import "SlideOutMenuTableView.h"
 #import "ItemNavigation1.h"
 #import "FooterTableView.h"
+#import "AppDelegate.h"
 @interface UINavigationController (RotationAll)
 -(NSUInteger)supportedInterfaceOrientations;
 @end
@@ -72,12 +73,25 @@
         
          _useCaseImage.image=[UIImage imageNamed:@""];
     }
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    
+    if([delegate.selectedPortfolio isEqualToString:@"integration"])
+    {
+       self.headerView.contentView.backgroundColor=[UIColor colorWithRed:0.0/255.0 green:138.0/255.0 blue:191.0/255.0 alpha:1.0];
+        
+    }
+    else if ([delegate.selectedPortfolio isEqualToString:@"smarterProcess"])
+    {
+        self.headerView.contentView.backgroundColor=[UIColor colorWithRed:253.0/255.0 green:185.0/255.0 blue:18.0/255.0 alpha:1.0];
+        
+    }
+
     [self.itemNavigationView.navigationButton4 setTitle:_scenario forState:UIControlStateNormal];
     [self.itemNavigationView.navigationButton3 setTitle:_productName forState:UIControlStateNormal];
     self.headerView.currentViewController = self;
     self.headerView.menuTableView = self.slideOutMenuTableView;
     self.headerView.menuTableViewWidthConstraints = self.slideOutTableViewWidthConstraints;
-    self.headerView.contentView.backgroundColor=[UIColor colorWithRed:253.0/255.0 green:185.0/255.0 blue:18.0/255.0 alpha:1.0];
+  //  self.headerView.contentView.backgroundColor=[UIColor colorWithRed:253.0/255.0 green:185.0/255.0 blue:18.0/255.0 alpha:1.0];
     [self.itemNavigationView setHierarchyNavigationBarForLevel:HierarchyLevel3];
     self.itemNavigationView.parantViewController = self;
     
