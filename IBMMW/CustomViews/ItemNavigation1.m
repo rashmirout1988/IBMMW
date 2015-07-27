@@ -7,7 +7,7 @@
 //
 
 #import "ItemNavigation1.h"
-
+#import "AppDelegate.h"
 
 @interface ItemNavigation1 ()
 
@@ -26,6 +26,26 @@
     
     [[NSBundle mainBundle] loadNibNamed:@"ItemNavigation1" owner:self options:nil];
     [self addSubview:self.contentView];
+    AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
+    if([appDelegate.selectedPortfolio isEqualToString:@"integration"])
+    {
+        [self.navigationButton1 setBackgroundImage:[UIImage imageNamed:@"dp_tabbar.png"] forState:UIControlStateNormal];
+        [self.navigationButton2 setBackgroundImage:[UIImage imageNamed:@"dp_tabbar.png"] forState:UIControlStateNormal];
+        [self.navigationButton3 setBackgroundImage:[UIImage imageNamed:@"dp_tabbar.png"] forState:UIControlStateNormal];
+        [self.navigationButton4 setBackgroundImage:[UIImage imageNamed:@"dp_tabbar.png"] forState:UIControlStateNormal];
+        [self.navigationButton5 setBackgroundImage:[UIImage imageNamed:@"dp_tabbar.png"] forState:UIControlStateNormal];
+        
+    }
+    else if ([appDelegate.selectedPortfolio isEqualToString:@"smarterProcess"])
+    {
+        [self.navigationButton1 setBackgroundImage:[UIImage imageNamed:@"tabbar.png"] forState:UIControlStateNormal];
+        [self.navigationButton2 setBackgroundImage:[UIImage imageNamed:@"tabbar.png"] forState:UIControlStateNormal];
+        [self.navigationButton3 setBackgroundImage:[UIImage imageNamed:@"tabbar.png"] forState:UIControlStateNormal];
+        [self.navigationButton4 setBackgroundImage:[UIImage imageNamed:@"tabbar.png"] forState:UIControlStateNormal];
+        [self.navigationButton5 setBackgroundImage:[UIImage imageNamed:@"tabbar.png"] forState:UIControlStateNormal];
+
+        
+    }
     [self.navigationButton1 setTitle:@"Smarter Process" forState:UIControlStateNormal];
     [self.navigationButton2 setTitle:@"Products" forState:UIControlStateNormal];
     //[self.navigationButton3 setTitle:@"Discovery" forState:UIControlStateNormal];

@@ -44,7 +44,6 @@
 @property (nonatomic, strong) NSArray *itemArray;
 @property (nonatomic,strong) NSString *selectedCellText;
 @property (nonatomic,strong) NSString *currentCellBgImageName;
-@property (nonatomic,strong) NSString *currentNavigationButtonName;
 @end
 
 @implementation Hierachy2ViewController
@@ -73,7 +72,6 @@
     if([delegate.selectedPortfolio isEqualToString:@"integration"]) {
         self.headerView.contentView.backgroundColor=[UIColor colorWithRed:0.0/255.0 green:138.0/255.0 blue:191.0/255.0 alpha:1.0];
         self.currentCellBgImageName=@"dpProductButton.png";
-        self.currentNavigationButtonName=@"dp_tabbar.png";
         
         if ([self.selectedItemAtHierachy1 isEqualToString:@"IBM Datapower Gateways"]) {
             self.itemArray = [delegate.IBMDatapowerGatewaysDictionary objectForKey:@"IBM Datapower Gateways"];
@@ -102,7 +100,6 @@
     else if ([delegate.selectedPortfolio isEqualToString:@"smarterProcess"]) {
         self.headerView.contentView.backgroundColor=[UIColor colorWithRed:253.0/255.0 green:185.0/255.0 blue:18.0/255.0 alpha:1.0];
         self.currentCellBgImageName=@"productbutton.png";
-        self.currentNavigationButtonName=@"tabbar.png";
         
         if ([self.selectedItemAtHierachy1 isEqualToString:@"Dicovery"]) {
             self.itemArray = [delegate.DiscoveryDictionary objectForKey:@"Discovery"];
@@ -125,10 +122,6 @@
         
         
      }
-    
-    [self.itemNavigationView.navigationButton1 setBackgroundImage:[UIImage imageNamed:self.currentNavigationButtonName] forState:UIControlStateNormal];
-    [self.itemNavigationView.navigationButton2 setBackgroundImage:[UIImage imageNamed:self.currentNavigationButtonName] forState:UIControlStateNormal];
-    [self.itemNavigationView.navigationButton3 setBackgroundImage:[UIImage imageNamed:self.currentNavigationButtonName] forState:UIControlStateNormal];
     
     
 }
