@@ -8,13 +8,15 @@
 
 #import "Hierachy2ViewController.h"
 #import "Hierachy3ViewController.h"
+#import "Hierachy4ViewController.h"
 #import "HeaderView.h"
 #import "FooterView.h"
 #import "SlideOutMenuTableView.h"
-#import "ItemNavigation1.h"
+
 #import "HierachyCollectionViewCell.h"
 #import "AppDelegate.h"
 #import "FooterTableView.h"
+
 @interface UINavigationController (RotationAll)
 -(NSUInteger)supportedInterfaceOrientations;
 @end
@@ -30,6 +32,9 @@
 @end
 
 @interface Hierachy2ViewController ()
+{
+    AppDelegate *delegate;
+}
 
 @property (nonatomic, weak) IBOutlet HeaderView *headerView;
 @property (nonatomic, weak) IBOutlet SlideOutMenuTableView *slideOutMenuTableView;
@@ -44,6 +49,7 @@
 @property (nonatomic, strong) NSArray *itemArray;
 @property (nonatomic,strong) NSString *selectedCellText;
 @property (nonatomic,strong) NSString *currentCellBgImageName;
+@property (nonatomic,strong) NSString *currentPortfolioName;
 @end
 
 @implementation Hierachy2ViewController
@@ -56,6 +62,8 @@
     self.headerView.menuTableView = self.slideOutMenuTableView;
     self.headerView.menuTableViewWidthConstraints = self.slideOutTableViewWidthConstraints;
     [self.itemNavigationView setHierarchyNavigationBarForLevel:HierarchyLevel2];
+    [self.itemNavigationView setHierarchyNavigationBarItemImageForPortfolio:self.portfolioName];
+
     self.itemNavigationView.parantViewController = self;
     
     self.slideOutMenuTableView.parantViewController = self;
@@ -63,65 +71,72 @@
     self.footerView.footerTableView = self.footerTableView;
     self.footerView.footerTableViewHeightConstraints = self.footerTableViewHeightConstraint;
     self.footerTableView.parentViewController = self;
+    delegate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
+    switch (self.portfolioName) {
+        case Integration:
+            NSLog(@"INTEGRATION");
+            self.currentPortfolioName=@"integration";
+            self.headerView.contentView.backgroundColor=[UIColor colorWithRed:0.0/255.0 green:138.0/255.0 blue:191.0/255.0 alpha:1.0];
+            self.currentCellBgImageName=@"dpProductButton.png";
+            
+            if ([self.selectedItemAtHierachy1 isEqualToString:@"IBM Datapower Gateways"]) {
+                self.itemArray = [delegate.IBMDatapowerGatewaysDictionary objectForKey:@"IBM Datapower Gateways"];
+                [self.itemNavigationView.navigationButton3 setTitle:@"IBM Datapower Gateways" forState:UIControlStateNormal];
+                
+            }
+            else if ([self.selectedItemAtHierachy1 isEqualToString:@"IBM MQ"]) {
+                self.itemArray = [delegate.OperationalDecMan objectForKey:@"IBM MQ"];
+                [self.itemNavigationView.navigationButton3 setTitle:@"IBM MQ" forState:UIControlStateNormal];
+            }
+            
+            else if ([self.selectedItemAtHierachy1 isEqualToString:@"IBM Cast Iron"]) {
+                self.itemArray = [delegate.OperationalDecMan objectForKey:@"IBM Cast Iron"];
+                [self.itemNavigationView.navigationButton3 setTitle:@"IBM Cast Iron" forState:UIControlStateNormal];
+            }
+            
+            else if ([self.selectedItemAtHierachy1 isEqualToString:@"IBM Integration"]) {
+                self.itemArray = [delegate.OperationalDecMan objectForKey:@"IBM Integration"];
+                [self.itemNavigationView.navigationButton3 setTitle:@"IBM Integration" forState:UIControlStateNormal];
+            }
+            
+            
 
+            break;
+            
+         case SmarterProcess:
+            NSLog(@"SMARTER PROCESS");
+            self.currentPortfolioName=@"smarterProcess";
+            self.headerView.contentView.backgroundColor=[UIColor colorWithRed:253.0/255.0 green:185.0/255.0 blue:18.0/255.0 alpha:1.0];
+            self.currentCellBgImageName=@"productbutton.png";
+            
+            if ([self.selectedItemAtHierachy1 isEqualToString:@"Dicovery"]) {
+                self.itemArray = [delegate.DiscoveryDictionary objectForKey:@"Discovery"];
+                [self.itemNavigationView.navigationButton3 setTitle:@"Discovery" forState:UIControlStateNormal];
+            }
+            else if ([self.selectedItemAtHierachy1 isEqualToString:@"Operational Decision Management"]) {
+                self.itemArray = [delegate.OperationalDecMan objectForKey:@"Operational Decision Management"];
+                [self.itemNavigationView.navigationButton3 setTitle:@"Operational Decision Management" forState:UIControlStateNormal];
+            }
+            else if ([self.selectedItemAtHierachy1 isEqualToString:@"Business Process Management"]) {
+                self.itemArray = [delegate.BusProcMan objectForKey:@"Business Process Management"];
+                [self.itemNavigationView.navigationButton3 setTitle:@"Business Process Management" forState:UIControlStateNormal];
+            }
+            else if ([self.selectedItemAtHierachy1 isEqualToString:@"Operational Intelligence"]){
+                self.itemArray = [delegate.OperationalIntelligence objectForKey:@"Operational Intelligence"];
+                [self.itemNavigationView.navigationButton3 setTitle:@"Operational Intelligence" forState:UIControlStateNormal];
+            }
+            
+            
+
+            break;
+        default:
+            break;
+    }
     
     NSLog(@"%@",self.selectedItemAtHierachy1);
+    NSLog(@"the item array is %@",self.itemArray);
     
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
-    
-    if([delegate.selectedPortfolio isEqualToString:@"integration"]) {
-        self.headerView.contentView.backgroundColor=[UIColor colorWithRed:0.0/255.0 green:138.0/255.0 blue:191.0/255.0 alpha:1.0];
-        self.currentCellBgImageName=@"dpProductButton.png";
-        
-        if ([self.selectedItemAtHierachy1 isEqualToString:@"IBM Datapower Gateways"]) {
-            self.itemArray = [delegate.IBMDatapowerGatewaysDictionary objectForKey:@"IBM Datapower Gateways"];
-            [self.itemNavigationView.navigationButton3 setTitle:@"IBM Datapower Gateways" forState:UIControlStateNormal];
-            
-        }
-        else if ([self.selectedItemAtHierachy1 isEqualToString:@"IBM MQ"]) {
-            self.itemArray = [delegate.OperationalDecMan objectForKey:@"IBM MQ"];
-            [self.itemNavigationView.navigationButton3 setTitle:@"IBM MQ" forState:UIControlStateNormal];
-        }
-
-        else if ([self.selectedItemAtHierachy1 isEqualToString:@"IBM Cast Iron"]) {
-            self.itemArray = [delegate.OperationalDecMan objectForKey:@"IBM Cast Iron"];
-            [self.itemNavigationView.navigationButton3 setTitle:@"IBM Cast Iron" forState:UIControlStateNormal];
-        }
-        
-        else if ([self.selectedItemAtHierachy1 isEqualToString:@"IBM Integration"]) {
-            self.itemArray = [delegate.OperationalDecMan objectForKey:@"IBM Integration"];
-            [self.itemNavigationView.navigationButton3 setTitle:@"IBM Integration" forState:UIControlStateNormal];
-        }
-        
-
-
-  
-    }
-    else if ([delegate.selectedPortfolio isEqualToString:@"smarterProcess"]) {
-        self.headerView.contentView.backgroundColor=[UIColor colorWithRed:253.0/255.0 green:185.0/255.0 blue:18.0/255.0 alpha:1.0];
-        self.currentCellBgImageName=@"productbutton.png";
-        
-        if ([self.selectedItemAtHierachy1 isEqualToString:@"Dicovery"]) {
-            self.itemArray = [delegate.DiscoveryDictionary objectForKey:@"Discovery"];
-            [self.itemNavigationView.navigationButton3 setTitle:@"Discovery" forState:UIControlStateNormal];
-        }
-        else if ([self.selectedItemAtHierachy1 isEqualToString:@"Operational Decision Management"]) {
-            self.itemArray = [delegate.OperationalDecMan objectForKey:@"Operational Decision Management"];
-            [self.itemNavigationView.navigationButton3 setTitle:@"Operational Decision Management" forState:UIControlStateNormal];
-        }
-        else if ([self.selectedItemAtHierachy1 isEqualToString:@"Business Process Management"]) {
-            self.itemArray = [delegate.BusProcMan objectForKey:@"Business Process Management"];
-            [self.itemNavigationView.navigationButton3 setTitle:@"Business Process Management" forState:UIControlStateNormal];
-        }
-        else if ([self.selectedItemAtHierachy1 isEqualToString:@"Operational Intelligence"]){
-            self.itemArray = [delegate.OperationalIntelligence objectForKey:@"Operational Intelligence"];
-            [self.itemNavigationView.navigationButton3 setTitle:@"Operational Intelligence" forState:UIControlStateNormal];
-        }
-  
-        
-        
-        
-     }
+   // delegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
     
 }
@@ -240,7 +255,15 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedCellText=[self.itemArray objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"gotoHierachy3" sender:self];
+    if ([self.currentPortfolioName isEqualToString:@"integration"])
+    {
+        [self performSegueWithIdentifier:@"gotoHierachy4" sender:self];
+    }
+    else if ([self.currentPortfolioName isEqualToString:@"smarterProcess"])
+    {
+         [self performSegueWithIdentifier:@"gotoHierachy3" sender:self];
+    }
+   
 }
 
 
@@ -250,9 +273,21 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    Hierachy3ViewController *hierachyObject3=[segue destinationViewController];
-    hierachyObject3.scenario=self.selectedCellText;
-    hierachyObject3.productName=self.selectedItemAtHierachy1;
+    if ([segue.identifier isEqualToString:@"gotoHierachy4"])
+    {
+        Hierachy4ViewController *hierachyObject4=[segue destinationViewController];
+        hierachyObject4.portfolioName=self.portfolioName;
+
+    }
+    else
+    {
+        Hierachy3ViewController *hierachyObject3=[segue destinationViewController];
+        hierachyObject3.scenario=self.selectedCellText;
+        hierachyObject3.productName=self.selectedItemAtHierachy1;
+        hierachyObject3.portfolioName=self.portfolioName;
+        
+    }
+   
 }
 
 

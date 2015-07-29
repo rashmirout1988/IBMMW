@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ItemNavigation1.h"
 
 @interface Hierachy2ViewController : UIViewController
 
 @property (nonatomic, strong) NSString *selectedItemAtHierachy1;
-
+@property (nonatomic) PortfolioName portfolioName;
 @end

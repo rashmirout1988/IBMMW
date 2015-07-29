@@ -15,6 +15,15 @@ typedef enum : NSUInteger {
     HierarchyLevel4,
 } HierarchyLevel;
 
+typedef enum : NSUInteger {
+    
+    ApplicationPlatform = 1,
+    Integration,
+    SmarterProcess,
+    DigitalExperience,
+    ItServiceManagement,
+} PortfolioName;
+
 @interface ItemNavigation1 : UIView
 
 @property (strong, nonatomic) IBOutlet UIView *contentView;
@@ -26,5 +35,5 @@ typedef enum : NSUInteger {
 @property (nonatomic, weak) UIViewController *parantViewController;
 
 - (void)setHierarchyNavigationBarForLevel:(int)levelNumber;
-
+- (void)setHierarchyNavigationBarItemImageForPortfolio:(int)portfolioName;
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ItemNavigation1.h"
 
 @interface Hierachy3ViewController : UIViewController
 {
@@ -15,4 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *useCaseImage;
 @property (nonatomic,strong)  NSString *scenario;
 @property (nonatomic,strong)  NSString *productName;
+@property (nonatomic) PortfolioName portfolioName;
+
 @end

@@ -10,7 +10,6 @@
 #import "HeaderView.h"
 #import "FooterView.h"
 #import "SlideOutMenuTableView.h"
-#import "ItemNavigation1.h"
 #import "FooterTableView.h"
 #import "AppDelegate.h"
 @interface UINavigationController (RotationAll)
@@ -48,44 +47,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     NSLog(@"usecase name is %@",_scenario);
-    if([_scenario isEqualToString:@"IBM Blueworks Live"])
-    {
-        _useCaseImage.image=[UIImage imageNamed:@"blueworkslive.png"];
-        
-    }
-    else if ([_scenario isEqualToString:@"IBM Operational Decision Manager"])
-    {
-        _useCaseImage.image=[UIImage imageNamed:@"operationaldecisionmanager.png"];
-        
-    }
-    else if ([_scenario isEqualToString:@"IBM Business Process Manager"])
-    {
-        _useCaseImage.image=[UIImage imageNamed:@"IBMBusinessprocessmanager.png"];
-        
-    }
-    else if ([_scenario isEqualToString:@"IBM Business Monitor"])
-    {
-        
-        _useCaseImage.image=[UIImage imageNamed:@"IBMBusinessMonitor.png"];
-        
-    }
-    else{
-        
-         _useCaseImage.image=[UIImage imageNamed:@""];
-    }
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
-    if([delegate.selectedPortfolio isEqualToString:@"integration"])
-    {
-       self.headerView.contentView.backgroundColor=[UIColor colorWithRed:0.0/255.0 green:138.0/255.0 blue:191.0/255.0 alpha:1.0];
-        
-    }
-    else if ([delegate.selectedPortfolio isEqualToString:@"smarterProcess"])
-    {
-        self.headerView.contentView.backgroundColor=[UIColor colorWithRed:253.0/255.0 green:185.0/255.0 blue:18.0/255.0 alpha:1.0];
-        
-    }
-
     [self.itemNavigationView.navigationButton4 setTitle:_scenario forState:UIControlStateNormal];
     [self.itemNavigationView.navigationButton3 setTitle:_productName forState:UIControlStateNormal];
     self.headerView.currentViewController = self;
@@ -93,6 +56,8 @@
     self.headerView.menuTableViewWidthConstraints = self.slideOutTableViewWidthConstraints;
   //  self.headerView.contentView.backgroundColor=[UIColor colorWithRed:253.0/255.0 green:185.0/255.0 blue:18.0/255.0 alpha:1.0];
     [self.itemNavigationView setHierarchyNavigationBarForLevel:HierarchyLevel3];
+    [self.itemNavigationView setHierarchyNavigationBarItemImageForPortfolio:self.portfolioName];
+
     self.itemNavigationView.parantViewController = self;
     
     self.slideOutMenuTableView.parantViewController = self;
@@ -106,6 +71,46 @@
                       initWithTarget:self
                       action:@selector(twoFingerPinch:)];
     [_useCaseImage addGestureRecognizer:twoFingerPinch];
+    
+    switch (self.portfolioName) {
+        case Integration:
+            self.headerView.contentView.backgroundColor=[UIColor colorWithRed:0.0/255.0 green:138.0/255.0 blue:191.0/255.0 alpha:1.0];
+
+            break;
+            
+        case SmarterProcess:
+            self.headerView.contentView.backgroundColor=[UIColor colorWithRed:253.0/255.0 green:185.0/255.0 blue:18.0/255.0 alpha:1.0];
+            if([_scenario isEqualToString:@"IBM Blueworks Live"])
+            {
+                _useCaseImage.image=[UIImage imageNamed:@"blueworkslive.png"];
+                
+            }
+            else if ([_scenario isEqualToString:@"IBM Operational Decision Manager"])
+            {
+                _useCaseImage.image=[UIImage imageNamed:@"operationaldecisionmanager.png"];
+                
+            }
+            else if ([_scenario isEqualToString:@"IBM Business Process Manager"])
+            {
+                _useCaseImage.image=[UIImage imageNamed:@"IBMBusinessprocessmanager.png"];
+                
+            }
+            else if ([_scenario isEqualToString:@"IBM Business Monitor"])
+            {
+                
+                _useCaseImage.image=[UIImage imageNamed:@"IBMBusinessMonitor.png"];
+                
+            }
+            else{
+                
+                _useCaseImage.image=[UIImage imageNamed:@""];
+            }
+
+            break;
+            
+        default:
+            break;
+    }
 
 }
 -(void)viewWillAppear:(BOOL)animated

@@ -7,13 +7,11 @@
 //
 
 #import "ItemNavigation1.h"
-#import "AppDelegate.h"
 
 @interface ItemNavigation1 ()
 
-
-
 @property (nonatomic) HierarchyLevel hierarchyLevel;
+@property (nonatomic) PortfolioName portfolioName;
 
 - (IBAction)changeHierarchy:(UIButton *)sender;
 
@@ -26,26 +24,6 @@
     
     [[NSBundle mainBundle] loadNibNamed:@"ItemNavigation1" owner:self options:nil];
     [self addSubview:self.contentView];
-    AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
-    if([appDelegate.selectedPortfolio isEqualToString:@"integration"])
-    {
-        [self.navigationButton1 setBackgroundImage:[UIImage imageNamed:@"dp_tabbar.png"] forState:UIControlStateNormal];
-        [self.navigationButton2 setBackgroundImage:[UIImage imageNamed:@"dp_tabbar.png"] forState:UIControlStateNormal];
-        [self.navigationButton3 setBackgroundImage:[UIImage imageNamed:@"dp_tabbar.png"] forState:UIControlStateNormal];
-        [self.navigationButton4 setBackgroundImage:[UIImage imageNamed:@"dp_tabbar.png"] forState:UIControlStateNormal];
-        [self.navigationButton5 setBackgroundImage:[UIImage imageNamed:@"dp_tabbar.png"] forState:UIControlStateNormal];
-        
-    }
-    else if ([appDelegate.selectedPortfolio isEqualToString:@"smarterProcess"])
-    {
-        [self.navigationButton1 setBackgroundImage:[UIImage imageNamed:@"tabbar.png"] forState:UIControlStateNormal];
-        [self.navigationButton2 setBackgroundImage:[UIImage imageNamed:@"tabbar.png"] forState:UIControlStateNormal];
-        [self.navigationButton3 setBackgroundImage:[UIImage imageNamed:@"tabbar.png"] forState:UIControlStateNormal];
-        [self.navigationButton4 setBackgroundImage:[UIImage imageNamed:@"tabbar.png"] forState:UIControlStateNormal];
-        [self.navigationButton5 setBackgroundImage:[UIImage imageNamed:@"tabbar.png"] forState:UIControlStateNormal];
-
-        
-    }
     [self.navigationButton1 setTitle:@"Smarter Process" forState:UIControlStateNormal];
     [self.navigationButton2 setTitle:@"Products" forState:UIControlStateNormal];
     //[self.navigationButton3 setTitle:@"Discovery" forState:UIControlStateNormal];
@@ -80,6 +58,47 @@
             break;
     }
 }
+
+- (void)setHierarchyNavigationBarItemImageForPortfolio:(int)portfolioName {
+    
+    self.portfolioName = portfolioName;
+    switch (portfolioName) {
+            
+        case ApplicationPlatform:
+            
+            break;
+            
+        case Integration:
+            [self changeButtonBackgroundImage:@"dp_tabbar.png"];
+            break;
+            
+        case SmarterProcess:
+            [self changeButtonBackgroundImage:@"tabbar.png"];
+            break;
+            
+        case DigitalExperience:
+            
+            break;
+            
+        ItServiceManagement:
+            
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)changeButtonBackgroundImage:(NSString *)imageName {
+    
+    [self.navigationButton1 setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [self.navigationButton2 setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [self.navigationButton3 setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [self.navigationButton4 setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [self.navigationButton5 setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+
+}
+
 
 - (void)changeHierarchy:(UIButton *)sender {
     

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ItemNavigation1.h"
 
 @interface Hierachy4ViewController : UIViewController
+@property (nonatomic) PortfolioName portfolioName;
 
 @end

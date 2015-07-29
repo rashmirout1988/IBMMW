@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "HeaderView.h"
 #import "AppDelegate.h"
+#import "PA&SGViewController.h"
 
 @interface UINavigationController (RotationAll)
 -(NSUInteger)supportedInterfaceOrientations;
@@ -29,6 +30,7 @@
 }
 
 @property (nonatomic, weak) IBOutlet HeaderView *headerView;
+@property (nonatomic, weak) NSString *buttonTag;
 -(IBAction)selectPorfolio:(UIButton *)sender;
 
 @end
@@ -183,29 +185,43 @@
     
     switch (sender.tag) {
         case 5001:
-            
+            self.buttonTag=@"1";
             break;
             
         case 5002:
+            self.buttonTag=@"2";
             appDelegate.selectedPortfolio = @"integration";
             [self performSegueWithIdentifier:@"goToPASG" sender:self];
             break;
             
         case 5003:
+            self.buttonTag=@"3";
             appDelegate.selectedPortfolio = @"smarterProcess";
             [self performSegueWithIdentifier:@"goToPASG" sender:self];
             break;
             
         case 5004:
-            
+            self.buttonTag=@"4";
             break;
             
         case 5005:
-            
+            self.buttonTag=@"5";
             break;
             
         default:
             break;
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    PG_SAViewController *vc = (PG_SAViewController *)[segue destinationViewController];
+    
+    if ([self.buttonTag isEqualToString:@"2"]) {
+        vc.portfolioName = Integration;
+    }
+    else if ([self.buttonTag isEqualToString:@"3"]) {
+        vc.portfolioName = SmarterProcess;
     }
 }
 

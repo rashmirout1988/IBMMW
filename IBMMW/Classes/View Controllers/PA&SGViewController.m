@@ -9,7 +9,8 @@
 #import "PA&SGViewController.h"
 #import "HomeViewController.h"
 #import "HeaderView.h"
-#import "AppDelegate.h"
+#import "Hierachy1ViewController.h"
+
 @interface UINavigationController (RotationAll)
 -(NSUInteger)supportedInterfaceOrientations;
 @end
@@ -26,9 +27,6 @@
 
 
 @interface PG_SAViewController ()
-{
-    AppDelegate *appDelegate;
-}
 
 @property (nonatomic, weak) IBOutlet HeaderView *headerView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *slideOutTableViewWidthConstraints;
@@ -49,23 +47,27 @@
     self.headerView.menuTableView = self.slidOutTableView;
     self.headerView.menuTableViewWidthConstraints = self.slideOutTableViewWidthConstraints;
     self.slidOutTableView.parantViewController = self;
-    appDelegate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
     
-    if([appDelegate.selectedPortfolio isEqualToString:@"integration"])
-    {
-        self.headerView.contentView.backgroundColor=[UIColor colorWithRed:0.0/255.0 green:138.0/255.0 blue:191.0/255.0 alpha:1.0];
-        [self.productBasicsButton setImage:[UIImage imageNamed:@"dpProbasic.png"] forState:UIControlStateNormal];
-        [self.SalesAidButton setImage:[UIImage imageNamed:@"dpSaguide.png"] forState:UIControlStateNormal];
-        
-    }
-    else if([appDelegate.selectedPortfolio isEqualToString:@"smarterProcess"])
-    {
-        
-       self.headerView.contentView.backgroundColor=[UIColor colorWithRed:253.0/255.0 green:185.0/255.0 blue:18.0/255.0 alpha:1.0];
-       [self.productBasicsButton setImage:[UIImage imageNamed:@"productbasics.png"] forState:UIControlStateNormal];
-       [self.SalesAidButton setImage:[UIImage imageNamed:@"salesaid.png"] forState:UIControlStateNormal];
+    switch (self.portfolioName) {
+        case Integration:
+            NSLog(@"INTEGRATION");
+            self.headerView.contentView.backgroundColor=[UIColor colorWithRed:0.0/255.0 green:138.0/255.0 blue:191.0/255.0 alpha:1.0];
+            [self.productBasicsButton setImage:[UIImage imageNamed:@"dpProbasic.png"] forState:UIControlStateNormal];
+            [self.SalesAidButton setImage:[UIImage imageNamed:@"dpSaguide.png"] forState:UIControlStateNormal];
 
-        
+            break;
+            
+        case SmarterProcess:
+            NSLog(@"SMARTER PROCESS");
+            self.headerView.contentView.backgroundColor=[UIColor colorWithRed:253.0/255.0 green:185.0/255.0 blue:18.0/255.0 alpha:1.0];
+            [self.productBasicsButton setImage:[UIImage imageNamed:@"productbasics.png"] forState:UIControlStateNormal];
+            [self.SalesAidButton setImage:[UIImage imageNamed:@"salesaid.png"] forState:UIControlStateNormal];
+            
+
+            break;
+            
+        default:
+            break;
     }
     
 }
@@ -117,11 +119,6 @@
         
         [self changeOrientationPortrait_iPad];
     }
-    
-    
-    
-    
-    
 }
 
 
@@ -146,7 +143,11 @@
     
 }
 
-
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    Hierachy1ViewController *h1VC=(Hierachy1ViewController *)[segue destinationViewController];
+    h1VC.portfolioName=self.portfolioName;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

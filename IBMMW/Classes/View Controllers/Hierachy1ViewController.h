@@ -11,4 +11,6 @@
 
 @interface Hierachy1ViewController : UIViewController
 
+@property (nonatomic) PortfolioName portfolioName;
+
 @end

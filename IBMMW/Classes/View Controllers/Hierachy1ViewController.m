@@ -67,6 +67,7 @@
     
 
     [self.item1 setHierarchyNavigationBarForLevel:HierarchyLevel1];
+    [self.item1 setHierarchyNavigationBarItemImageForPortfolio:self.portfolioName];
     
     self.item1.parantViewController = self;
     self.slidOutTableView.parantViewController = self;
@@ -77,27 +78,33 @@
     self.footerTableView.parentViewController = self;
     delegate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
     
-    if([delegate.selectedPortfolio isEqualToString:@"integration"])
-    {
-        self.headerView.contentView.backgroundColor=[UIColor colorWithRed:0.0/255.0 green:138.0/255.0 blue:191.0/255.0 alpha:1.0];
-        self.itemArray = delegate.integrationPortfolioProducts;
-        self.productLabel.text = @"List of Products";
-        [self.item1.navigationButton1 setTitle:@"Integration" forState:UIControlStateNormal];
-        [self.item1.navigationButton2 setTitle:@"Products" forState:UIControlStateNormal];
+    switch (self.portfolioName) {
+        case Integration:
+            NSLog(@"INTEGRATION");
+            self.headerView.contentView.backgroundColor=[UIColor colorWithRed:0.0/255.0 green:138.0/255.0 blue:191.0/255.0 alpha:1.0];
+            self.itemArray = delegate.integrationPortfolioProducts;
+            self.productLabel.text = @"List of Products";
+            [self.item1.navigationButton1 setTitle:@"Integration" forState:UIControlStateNormal];
+            [self.item1.navigationButton2 setTitle:@"Products" forState:UIControlStateNormal];
+            
+            self.currentCellBgImageName=@"dpProductButton.png";
 
-        self.currentCellBgImageName=@"dpProductButton.png";
-    }
-    else if([delegate.selectedPortfolio isEqualToString:@"smarterProcess"])
-    {
-        
-        self.headerView.contentView.backgroundColor=[UIColor colorWithRed:253.0/255.0 green:185.0/255.0 blue:18.0/255.0 alpha:1.0];
-        self.itemArray = delegate.smarterProcessPortfolioProducts;
-        self.productLabel.text = @"List of Capabilities";
-        [self.item1.navigationButton1 setTitle:@"Smarter Process" forState:UIControlStateNormal];
-
-         [self.item1.navigationButton2 setTitle:@"Capabilities" forState:UIControlStateNormal];
-        self.currentCellBgImageName=@"productbutton.png";
-        
+            break;
+            
+        case SmarterProcess:
+            NSLog(@"SMARTER PROCESS");
+            self.headerView.contentView.backgroundColor=[UIColor colorWithRed:253.0/255.0 green:185.0/255.0 blue:18.0/255.0 alpha:1.0];
+            self.itemArray = delegate.smarterProcessPortfolioProducts;
+            self.productLabel.text = @"List of Capabilities";
+            [self.item1.navigationButton1 setTitle:@"Smarter Process" forState:UIControlStateNormal];
+            
+            [self.item1.navigationButton2 setTitle:@"Capabilities" forState:UIControlStateNormal];
+            self.currentCellBgImageName=@"productbutton.png";
+            
+            break;
+            
+        default:
+            break;
     }
 
 }
@@ -226,6 +233,7 @@
     
     Hierachy2ViewController *hierachy2VC = (Hierachy2ViewController *)[segue destinationViewController];
     hierachy2VC.selectedItemAtHierachy1 = self.selectedItem;
+    hierachy2VC.portfolioName=self.portfolioName;
 }
 
 

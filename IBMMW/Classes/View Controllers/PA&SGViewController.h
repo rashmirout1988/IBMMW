@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "SlideOutMenuTableView.h"
+#import "ItemNavigation1.h"
+
 
 @interface PG_SAViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet SlideOutMenuTableView *slidOutTableView;
+
+@property (nonatomic) PortfolioName portfolioName;
 
 @end

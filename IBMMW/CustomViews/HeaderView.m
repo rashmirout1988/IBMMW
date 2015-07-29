@@ -8,6 +8,7 @@
 
 #import "HeaderView.h"
 
+
 @interface HeaderView () {
     
     BOOL isSlideOutMenuVisible;
@@ -24,6 +25,7 @@
     
     [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
     [self addSubview:self.contentView];
+    
 }
 
 - (void)willMoveToWindow:(UIWindow *)newWindow {
@@ -45,6 +47,7 @@
 
 - (void)goToHome:(UIButton *)sender {
     [self.currentViewController.navigationController popToRootViewControllerAnimated:YES];
+    
 }
 
 - (void)clikedMenuButton:(UIButton *)sender {
