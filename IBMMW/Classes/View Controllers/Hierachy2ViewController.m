@@ -16,6 +16,9 @@
 #import "HierachyCollectionViewCell.h"
 #import "AppDelegate.h"
 #import "FooterTableView.h"
+#define CASE(str)                       if ([__s__ isEqualToString:(str)])
+#define SWITCH(s)                       for (NSString *__s__ = (s); ; )
+#define DEFAULT
 
 @interface UINavigationController (RotationAll)
 -(NSUInteger)supportedInterfaceOrientations;
@@ -255,9 +258,46 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedCellText=[self.itemArray objectAtIndex:indexPath.row];
+    NSLog(@"the selected value is %@",self.selectedCellText);
     if ([self.currentPortfolioName isEqualToString:@"integration"])
     {
+        
+        SWITCH(self.selectedCellText)  {
+        CASE (@"API Management")
+            {
+                NSLog(@"API MANAGEMENT");
+                break;
+            }
+            
+        CASE (@"Integration")
+            {
+                NSLog(@"ENTERPRISE INTEGRATION");
+                break;
+            }
+            
+        CASE (@"Mainframe Integration & enablement")
+            {
+            NSLog(@"MAINFRAME INTEGRATION & ENABLEMENT");
+            break;
+            }
+            
+        CASE (@"Mobile Connectivity")
+            {
+            NSLog(@"MOBILE CONNECTIVITY");
+            break;
+            }
+            
+        CASE (@"Security & Optimization Gateway")
+            {
+            NSLog(@"SECURITY & OPTMIZATION GATEWAY");
+            break;
+            }
+            
+            DEFAULT
+                break;
+        }
         [self performSegueWithIdentifier:@"gotoHierachy4" sender:self];
+        
     }
     else if ([self.currentPortfolioName isEqualToString:@"smarterProcess"])
     {
