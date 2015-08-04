@@ -55,7 +55,7 @@
     self.headerView.menuTableView = self.slideOutMenuTableView;
     self.headerView.menuTableViewWidthConstraints = self.slideOutTableViewWidthConstraints;
   //  self.headerView.contentView.backgroundColor=[UIColor colorWithRed:253.0/255.0 green:185.0/255.0 blue:18.0/255.0 alpha:1.0];
-    [self.itemNavigationView setHierarchyNavigationBarForLevel:HierarchyLevel3];
+    
     [self.itemNavigationView setHierarchyNavigationBarItemImageForPortfolio:self.portfolioName];
 
     self.itemNavigationView.parantViewController = self;
@@ -74,11 +74,15 @@
     
     switch (self.portfolioName) {
         case Integration:
+            [self.itemNavigationView setHierarchyNavigationBarForLevel:HierarchyLevel4];
             self.headerView.contentView.backgroundColor=[UIColor colorWithRed:0.0/255.0 green:138.0/255.0 blue:191.0/255.0 alpha:1.0];
+            NSLog(@"the scenario is %@",_scenario);
 
+            _useCaseImage.image=[UIImage imageNamed:_scenario];
             break;
             
         case SmarterProcess:
+            [self.itemNavigationView setHierarchyNavigationBarForLevel:HierarchyLevel3];
             self.headerView.contentView.backgroundColor=[UIColor colorWithRed:253.0/255.0 green:185.0/255.0 blue:18.0/255.0 alpha:1.0];
             if([_scenario isEqualToString:@"IBM Blueworks Live"])
             {

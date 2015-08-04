@@ -11,5 +11,7 @@
 
 @interface Hierachy4ViewController : UIViewController
 @property (nonatomic) PortfolioName portfolioName;
+@property (nonatomic,strong) NSString *selectedCapability;
+
 
 @end

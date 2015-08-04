@@ -307,6 +307,8 @@
 }
 
 
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -317,6 +319,51 @@
     {
         Hierachy4ViewController *hierachyObject4=[segue destinationViewController];
         hierachyObject4.portfolioName=self.portfolioName;
+        hierachyObject4.selectedCapability=self.selectedCellText;
+        
+        SWITCH(self.selectedCellText)  {
+            CASE (@"API Management")
+            {
+                NSLog(@"API MANAGEMENT");
+               // hierachyObject4.itemArray=[@[@"IBM API Management V2.0",@"Secure Mobile App Integration + API Management"] mutableCopy];
+                break;
+            }
+            
+            CASE (@"Integration")
+            {
+                NSLog(@"ENTERPRISE INTEGRATION");
+               // hierachyObject4.itemArray=[@[@"Content-Based Routing",@"Transport Protocol Translation",@"Integration",@"UK Government Agency",@"Security & Integration Scenario – Financial Firm"] mutableCopy];
+                break;
+            }
+            
+            CASE (@"Mainframe Integration & enablement")
+            {
+                NSLog(@"MAINFRAME INTEGRATION & ENABLEMENT");
+               // hierachyObject4.itemArray=[@[@"Broad integration with System z",@"Enhanced value for System z & IMS",@"An Irish Bank",@"High Street Clothing and Fashion Accessories Retailer",@"Web Services Security and Management for IMS Web Services",@"Web Services Enablement for IMS-based Services",@"Web Services Enablement for IMS-based Services",@"IMS Connect Reverse Proxy",@"DB2 Integration",@"Web Services Security and Management for CICS Web Services",@"Web Services Enablement for CICS Applications"] mutableCopy];
+                break;
+            }
+            
+            CASE (@"Mobile Connectivity")
+            {
+                NSLog(@"MOBILE CONNECTIVITY");
+              //  hierachyObject4.itemArray=[@[@"Connect Mobile Apps with Enterprise Apps & Services",@"A closer look at some Mobile Connectivity scenarios",@"Sprint leverages IBM DataPower appliances to rapidly & securely grow revenue",@"Client examples using DataPower for Mobile use cases"] mutableCopy];
+                break;
+            }
+            
+            CASE (@"Security & Optimization Gateway")
+            {
+                NSLog(@"SECURITY & OPTMIZATION GATEWAY");
+               // hierachyObject4.itemArray=[@[@"DataPower security roles and objectives",@"Protection of data plus XML & JSON threat protection",@"AAA : Authentication Authorization Auditing",@"Security Gateway",@"Retail Service Provider",@"DataPower & Tivoli Offerings"] mutableCopy];
+                break;
+            }
+            
+            DEFAULT
+            break;
+            
+            
+        }
+      //  NSLog(@"the array -->> %@",hierachyObject4.itemArray);
+
 
     }
     else

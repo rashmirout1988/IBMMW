@@ -779,35 +779,29 @@
                                     <constraint firstAttribute="height" constant="49" id="hb6-Ce-M7G"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8oX-NQ-wG2" customClass="SlideOutMenuTableView">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" id="Y01-ho-dTw"/>
-                                </constraints>
-                            </tableView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jou-sP-2bQ">
-                                <rect key="frame" x="40" y="186" width="536" height="320"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="viC-Wr-CIS">
+                                <rect key="frame" x="40" y="186" width="520" height="320"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="10" id="gec-TF-9rV">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="10" id="bpg-FP-uTa">
                                     <size key="itemSize" width="250" height="46"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="AgL-Ws-XLA" customClass="HierachyCollectionViewCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="WjO-fq-5Ot" customClass="HierachyCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="250" height="46"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="productbutton.png" translatesAutoresizingMaskIntoConstraints="NO" id="CH0-W1-Wax">
-                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="46"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="productbutton.png" translatesAutoresizingMaskIntoConstraints="NO" id="V3R-Cn-NY6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="250" height="46"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGr-oy-NO4">
-                                                    <rect key="frame" x="8" y="3" width="234" height="40"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66A-TK-6Gk">
+                                                    <rect key="frame" x="3" y="8" width="244" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -815,37 +809,47 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="JGr-oy-NO4" secondAttribute="bottom" constant="3" id="dGr-on-4gG"/>
-                                            <constraint firstAttribute="trailing" secondItem="JGr-oy-NO4" secondAttribute="trailing" constant="8" id="dM4-Hb-6ID"/>
-                                            <constraint firstItem="JGr-oy-NO4" firstAttribute="leading" secondItem="AgL-Ws-XLA" secondAttribute="leading" constant="8" id="dcj-OF-LSA"/>
-                                            <constraint firstItem="JGr-oy-NO4" firstAttribute="top" secondItem="AgL-Ws-XLA" secondAttribute="top" constant="3" id="e76-CN-pCd"/>
+                                            <constraint firstAttribute="bottom" secondItem="66A-TK-6Gk" secondAttribute="bottom" constant="8" id="2HL-yV-Z11"/>
+                                            <constraint firstItem="66A-TK-6Gk" firstAttribute="top" secondItem="WjO-fq-5Ot" secondAttribute="top" constant="8" id="QPq-Oc-NRI"/>
+                                            <constraint firstAttribute="trailing" secondItem="66A-TK-6Gk" secondAttribute="trailing" constant="3" id="WDJ-Ys-UVT"/>
+                                            <constraint firstAttribute="trailing" secondItem="V3R-Cn-NY6" secondAttribute="trailing" id="ka4-Wx-cie"/>
+                                            <constraint firstItem="V3R-Cn-NY6" firstAttribute="top" secondItem="WjO-fq-5Ot" secondAttribute="top" id="p4d-Kj-3hR"/>
+                                            <constraint firstItem="66A-TK-6Gk" firstAttribute="leading" secondItem="WjO-fq-5Ot" secondAttribute="leading" constant="3" id="pAk-hz-r8A"/>
+                                            <constraint firstItem="V3R-Cn-NY6" firstAttribute="leading" secondItem="WjO-fq-5Ot" secondAttribute="leading" id="pt8-dj-5ig"/>
+                                            <constraint firstAttribute="bottom" secondItem="V3R-Cn-NY6" secondAttribute="bottom" id="wuz-xO-u45"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="bgImageView" destination="CH0-W1-Wax" id="vNp-sW-6a5"/>
-                                            <outlet property="itemNameLabel" destination="JGr-oy-NO4" id="9GR-1p-USI"/>
+                                            <outlet property="bgImageView" destination="V3R-Cn-NY6" id="CNE-8t-ur8"/>
+                                            <outlet property="itemNameLabel" destination="66A-TK-6Gk" id="U4A-8m-yJi"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="Vxq-VO-Hai" id="SIS-4h-ijZ"/>
-                                    <outlet property="delegate" destination="Vxq-VO-Hai" id="TaH-YT-W8q"/>
+                                    <outlet property="dataSource" destination="Vxq-VO-Hai" id="HT5-FX-itS"/>
+                                    <outlet property="delegate" destination="Vxq-VO-Hai" id="N4j-bo-9cL"/>
                                 </connections>
                             </collectionView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8oX-NQ-wG2" customClass="SlideOutMenuTableView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" id="Y01-ho-dTw"/>
+                                </constraints>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Jou-sP-2bQ" secondAttribute="trailing" constant="24" id="0Ew-5l-bvy"/>
                             <constraint firstAttribute="trailing" secondItem="dbo-dV-XNv" secondAttribute="trailing" id="0Lu-qf-2RU"/>
-                            <constraint firstItem="Jou-sP-2bQ" firstAttribute="top" secondItem="632-pj-Ccr" secondAttribute="bottom" constant="66" id="93U-Cc-Nc2"/>
                             <constraint firstAttribute="trailing" secondItem="632-pj-Ccr" secondAttribute="trailing" constant="5" id="BqU-hQ-4Zq"/>
                             <constraint firstItem="632-pj-Ccr" firstAttribute="leading" secondItem="fnK-hX-M03" secondAttribute="leading" constant="5" id="GM3-4g-UkY"/>
-                            <constraint firstItem="Jou-sP-2bQ" firstAttribute="leading" secondItem="fnK-hX-M03" secondAttribute="leading" constant="40" id="Krv-fh-Zqj"/>
+                            <constraint firstItem="dbo-dV-XNv" firstAttribute="top" secondItem="viC-Wr-CIS" secondAttribute="bottom" constant="45" id="KCa-s9-3MX"/>
                             <constraint firstItem="dbo-dV-XNv" firstAttribute="leading" secondItem="fnK-hX-M03" secondAttribute="leading" id="Nqz-dw-iwd"/>
+                            <constraint firstItem="viC-Wr-CIS" firstAttribute="top" secondItem="632-pj-Ccr" secondAttribute="bottom" constant="66" id="Ok9-Ib-NWF"/>
                             <constraint firstItem="dbo-dV-XNv" firstAttribute="top" secondItem="8oX-NQ-wG2" secondAttribute="bottom" id="S9D-62-fVw"/>
                             <constraint firstItem="VRv-tN-M05" firstAttribute="top" secondItem="fnK-hX-M03" secondAttribute="top" id="SoX-sx-MD6"/>
-                            <constraint firstItem="dbo-dV-XNv" firstAttribute="top" secondItem="Jou-sP-2bQ" secondAttribute="bottom" constant="45" id="V6y-rw-HnI"/>
                             <constraint firstItem="bYm-WZ-aWU" firstAttribute="top" secondItem="dbo-dV-XNv" secondAttribute="bottom" id="VXt-Lk-42p"/>
                             <constraint firstItem="632-pj-Ccr" firstAttribute="top" secondItem="VRv-tN-M05" secondAttribute="bottom" constant="10" id="YMH-WR-LTn"/>
+                            <constraint firstItem="viC-Wr-CIS" firstAttribute="leading" secondItem="fnK-hX-M03" secondAttribute="leading" constant="40" id="aSg-qm-cMg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="viC-Wr-CIS" secondAttribute="trailing" constant="24" id="dgF-BM-peB"/>
                             <constraint firstAttribute="trailing" secondItem="VRv-tN-M05" secondAttribute="trailing" id="rWZ-W7-eSi"/>
                             <constraint firstItem="VRv-tN-M05" firstAttribute="leading" secondItem="fnK-hX-M03" secondAttribute="leading" id="sbR-0S-Zhc"/>
                             <constraint firstAttribute="trailing" secondItem="8oX-NQ-wG2" secondAttribute="trailing" id="xSN-68-3rb"/>
@@ -857,11 +861,11 @@
                     <connections>
                         <outlet property="footerView" destination="dbo-dV-XNv" id="H1i-5W-n64"/>
                         <outlet property="headerView" destination="VRv-tN-M05" id="b88-3i-sln"/>
-                        <outlet property="itemCollectionView" destination="Jou-sP-2bQ" id="CcX-HQ-xz6"/>
+                        <outlet property="itemCollectionView" destination="viC-Wr-CIS" id="YJ6-Pa-TqD"/>
                         <outlet property="itemNavigationView" destination="632-pj-Ccr" id="YDC-YQ-RdH"/>
                         <outlet property="slideOutMenuTableView" destination="8oX-NQ-wG2" id="bWe-0j-tPM"/>
                         <outlet property="slideOutTableViewWidthConstraints" destination="Y01-ho-dTw" id="WTG-sL-SUM"/>
-                        <segue destination="4yP-PQ-sTs" kind="custom" customClass="PushNoAnimationSegue" id="6bJ-le-x5E"/>
+                        <segue destination="4yP-PQ-sTs" kind="custom" identifier="gotoHierachy3" customClass="PushNoAnimationSegue" id="6bJ-le-x5E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="49F-xl-Cg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
