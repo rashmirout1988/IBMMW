@@ -741,11 +741,11 @@
 			name = ItemNavigation;
 			sourceTree = "<group>";
 		};
-		E46473B81B53F44700C213CD /* August4_2015_Updated */ = {
+		E46473B81B53F44700C213CD /* August5_2015_Updated */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = August4_2015_Updated;
+			name = August5_2015_Updated;
 			sourceTree = "<group>";
 		};
 		E466663C1B577775005C6FB0 /* Usecases */ = {
@@ -910,7 +910,7 @@
 		E4E8A70A1B3ABF07005919CF = {
 			isa = PBXGroup;
 			children = (
-				E46473B81B53F44700C213CD /* August4_2015_Updated */,
+				E46473B81B53F44700C213CD /* August5_2015_Updated */,
 				E4E8A7151B3ABF07005919CF /* IBMMW */,
 				E4E8A7321B3ABF07005919CF /* IBMMWTests */,
 				E4E8A7141B3ABF07005919CF /* Products */,
@@ -1384,8 +1384,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Abinash Barooah (7PR5ZMLL4D)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Abinash Barooah (7PR5ZMLL4D)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: International Business Machines";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: International Business Machines";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1405,7 +1405,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "bec55e6c-a4cc-4925-98df-85e653e0f81b";
+				PROVISIONING_PROFILE = Automatic;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -1428,8 +1428,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Abinash Barooah (7PR5ZMLL4D)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Abinash Barooah (7PR5ZMLL4D)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: International Business Machines";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: International Business Machines";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1442,7 +1442,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "bec55e6c-a4cc-4925-98df-85e653e0f81b";
+				PROVISIONING_PROFILE = Automatic;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -1454,12 +1454,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Abinash Barooah (7PR5ZMLL4D)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: International Business Machines";
 				INFOPLIST_FILE = IBMMW/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bec55e6c-a4cc-4925-98df-85e653e0f81b";
+				PROVISIONING_PROFILE = Automatic;
 			};
 			name = Debug;
 		};
@@ -1468,12 +1468,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Abinash Barooah (7PR5ZMLL4D)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: International Business Machines";
 				INFOPLIST_FILE = IBMMW/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bec55e6c-a4cc-4925-98df-85e653e0f81b";
+				PROVISIONING_PROFILE = Automatic;
 			};
 			name = Release;
 		};

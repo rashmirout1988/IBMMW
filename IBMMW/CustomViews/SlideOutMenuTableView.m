@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Rashmi Ranjan. All rights reserved.
 //
 
+
+
 #import "SlideOutMenuTableView.h"
 #import "ListItem1ViewController.h"
 #import "AppDelegate.h"
@@ -23,10 +25,10 @@ static int currentSelectedIndex;
 }
 
 - (void)awakeFromNib {
-    
+    ///Rashmi 5th August Changes
     [[NSBundle mainBundle] loadNibNamed:@"SlideOutMenuTableView" owner:self options:nil];
     [self addSubview:self.slideOutTableView];
-    self.menuContentArray = [NSArray arrayWithObjects:@"What is it important", @"The Road to Smarter Processess", @"References", @"Alert", @"Miscellaneous", nil];
+    self.menuContentArray = [NSArray arrayWithObjects:@"Why is it Important To Your Clients", @"The Road to Smarter Processess", @"References", @"Alert", @"CAMSS alignment", nil];
     
     self.slideOutTableView.delegate = self;
     self.slideOutTableView.dataSource = self;

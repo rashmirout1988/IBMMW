@@ -17,5 +17,8 @@
 @property (nonatomic,strong)  NSString *scenario;
 @property (nonatomic,strong)  NSString *productName;
 @property (nonatomic) PortfolioName portfolioName;
+@property (nonatomic ,strong) NSString *useCaseText;
+@property (nonatomic ,strong) NSString *selectedProduct;
+@property (nonatomic ,strong) NSString *selectedCapability;
 
 @end

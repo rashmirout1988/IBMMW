@@ -24,8 +24,8 @@
     
     [[NSBundle mainBundle] loadNibNamed:@"ItemNavigation1" owner:self options:nil];
     [self addSubview:self.contentView];
-    [self.navigationButton1 setTitle:@"Smarter Process" forState:UIControlStateNormal];
-    [self.navigationButton2 setTitle:@"Products" forState:UIControlStateNormal];
+   // [self.navigationButton1 setTitle:@"Smarter Process" forState:UIControlStateNormal];
+    //[self.navigationButton2 setTitle:@"Products" forState:UIControlStateNormal];
     //[self.navigationButton3 setTitle:@"Discovery" forState:UIControlStateNormal];
     //[self.navigationButton4 setTitle:@"IBM Blueworks live" forState:UIControlStateNormal];
 }
@@ -70,10 +70,16 @@
             
         case Integration:
             [self changeButtonBackgroundImage:@"dp_tabbar.png"];
+            [self.navigationButton1 setTitle:@"Integration" forState:UIControlStateNormal];
+            [self.navigationButton2 setTitle:@"Products" forState:UIControlStateNormal];
             break;
             
         case SmarterProcess:
             [self changeButtonBackgroundImage:@"tabbar.png"];
+            [self.navigationButton1 setTitle:@"Smarter Process" forState:UIControlStateNormal];
+            [self.navigationButton2 setTitle:@"Capabilities" forState:UIControlStateNormal];
+
+            
             break;
             
         case DigitalExperience:

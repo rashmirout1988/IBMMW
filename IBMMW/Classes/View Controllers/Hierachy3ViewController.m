@@ -49,8 +49,6 @@
     NSLog(@"usecase name is %@",_scenario);
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
-    [self.itemNavigationView.navigationButton4 setTitle:_scenario forState:UIControlStateNormal];
-    [self.itemNavigationView.navigationButton3 setTitle:_productName forState:UIControlStateNormal];
     self.headerView.currentViewController = self;
     self.headerView.menuTableView = self.slideOutMenuTableView;
     self.headerView.menuTableViewWidthConstraints = self.slideOutTableViewWidthConstraints;
@@ -76,6 +74,9 @@
         case Integration:
             [self.itemNavigationView setHierarchyNavigationBarForLevel:HierarchyLevel4];
             self.headerView.contentView.backgroundColor=[UIColor colorWithRed:0.0/255.0 green:138.0/255.0 blue:191.0/255.0 alpha:1.0];
+            [self.itemNavigationView.navigationButton3 setTitle:self.selectedProduct forState:UIControlStateNormal];
+            [self.itemNavigationView.navigationButton4 setTitle:self.selectedCapability forState:UIControlStateNormal];
+            [self.itemNavigationView.navigationButton5 setTitle:self.useCaseText forState:UIControlStateNormal];
             NSLog(@"the scenario is %@",_scenario);
 
             _useCaseImage.image=[UIImage imageNamed:_scenario];
@@ -83,6 +84,9 @@
             
         case SmarterProcess:
             [self.itemNavigationView setHierarchyNavigationBarForLevel:HierarchyLevel3];
+            [self.itemNavigationView.navigationButton4 setTitle:_scenario forState:UIControlStateNormal];
+            [self.itemNavigationView.navigationButton3 setTitle:_productName forState:UIControlStateNormal];
+
             self.headerView.contentView.backgroundColor=[UIColor colorWithRed:253.0/255.0 green:185.0/255.0 blue:18.0/255.0 alpha:1.0];
             if([_scenario isEqualToString:@"IBM Blueworks Live"])
             {

@@ -42,6 +42,7 @@
 @property (nonatomic, strong) NSMutableArray *useCaseImageArray;
 @property (nonatomic,strong) NSString *currentCellBgImageName;
 @property (nonatomic ,strong) NSString *nextViewUseCaseImageString;
+@property (nonatomic ,strong) NSString *nextViewUseCaseTitle;
 @end
 
 @implementation Hierachy4ViewController
@@ -52,17 +53,22 @@
     self.headerView.currentViewController = self;
     self.headerView.menuTableView = self.slideOutMenuTableView;
     self.headerView.menuTableViewWidthConstraints = self.slideOutTableViewWidthConstraints;
-    
+    self.itemNavigationView.parantViewController = self;
+    self.slideOutMenuTableView.parantViewController = self;
     [self.itemNavigationView setHierarchyNavigationBarForLevel:HierarchyLevel3];
     [self.itemNavigationView setHierarchyNavigationBarItemImageForPortfolio:self.portfolioName];
     switch (self.portfolioName) {
         case Integration:
             NSLog(@"INTEGRATION");
-            self.currentCellBgImageName=@"dp_tabbar.png";
+            self.headerView.contentView.backgroundColor=[UIColor colorWithRed:0.0/255.0 green:138.0/255.0 blue:191.0/255.0 alpha:1.0];
+            self.currentCellBgImageName=@"dpProductButton.png";
+            [self.itemNavigationView.navigationButton3 setTitle:self.selectedProduct forState:UIControlStateNormal];
+            [self.itemNavigationView.navigationButton4 setTitle:self.selectedCapability forState:UIControlStateNormal];
             break;
         case SmarterProcess:
             NSLog(@"SMARTER PROCESS");
-            self.currentCellBgImageName=@"tabbar.png";
+            self.headerView.contentView.backgroundColor=[UIColor colorWithRed:253.0/255.0 green:185.0/255.0 blue:18.0/255.0 alpha:1.0];
+            self.currentCellBgImageName=@"productButton.png";
             break;
             
         default:
@@ -146,8 +152,7 @@
 
     
     NSLog(@"array is --> %@",self.itemArray);
-    self.itemNavigationView.parantViewController = self;
-    self.slideOutMenuTableView.parantViewController = self;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -188,6 +193,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     self.nextViewUseCaseImageString=[self.useCaseImageArray objectAtIndex:indexPath.row];
+    self.nextViewUseCaseTitle=[self.itemArray objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"gotoHierachy3" sender:self];
     /*
     self.selectedCellText=[self.itemArray objectAtIndex:indexPath.row];
@@ -216,7 +222,11 @@
     Hierachy3ViewController *hierachy3Object=[segue destinationViewController];
     hierachy3Object.scenario=self.nextViewUseCaseImageString;
     hierachy3Object.portfolioName=self.portfolioName;
+    hierachy3Object.useCaseText=self.nextViewUseCaseTitle;
+    hierachy3Object.selectedCapability=self.selectedCapability;
+    hierachy3Object.selectedProduct=self.selectedProduct;
     NSLog(@"next view image string is %@",hierachy3Object.scenario);
+    
 }
 
 
